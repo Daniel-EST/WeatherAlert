@@ -1,5 +1,6 @@
 import json
 import time
+import datetime
 
 import requests
 
@@ -25,26 +26,27 @@ with open('api_key.txt') as k_obj:
 req_url = weather_api_url + query + unity + api_key
 
 while True:
-    req = requests.get(req_url)
+    if datetime.datetime.now() == 5
+        req = requests.get(req_url)
 
-    if req.status_code==200:
-        json_obj = req.json()
+        if req.status_code==200:
+            json_obj = req.json()
     
-        for city in json_obj['list']:
-            print('Curently weather in %s: %s' % (city['name'], city['weather'][0]['description'].title()))
+            for city in json_obj['list']:
+                print('Curently weather in %s: %s' % (city['name'], city['weather'][0]['description'].title()))
         
-            if city['weather'][0]['icon'] in ['01d', '02d', '01n', '02n']:
-                print('I think you don\'t need an umbrella today.')
+                if city['weather'][0]['icon'] in ['01d', '02d', '01n', '02n']:
+                    print('I think you don\'t need an umbrella today.')
             
-            else:
-                print('I would consider having a umbrella a good ideia today')        
+                else:
+                    print('I would consider having a umbrella a good ideia today')        
             
-            print('Max tempture: %i' % city['main']['temp_max'])
-            print('Min tempture: %i' % city['main']['temp_min'])
+                print('Max tempture: %i' % city['main']['temp_max'])
+                print('Min tempture: %i' % city['main']['temp_min'])
         
-            if  city['main']['temp_max'] < 25 or city['main']['temp_min'] < 25:
-                print('Don\'t forget your coat!')
+                if  city['main']['temp_max'] < 25 or city['main']['temp_min'] < 25:
+                    print('Don\'t forget your coat!')
             
-            print('\n\n')
+                print('\n\n')
             
-    time.sleep(60 * 60 * 24)
+        time.sleep(60 * 60)
