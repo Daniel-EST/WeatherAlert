@@ -29,7 +29,7 @@ def notify_weather(weather, telegram, time):
                     city_maxs.append(city['main']['temp_max'])
                     city_mins.append(city['main']['temp_min'])
                 
-                    text += 'Curently weather in %s: %s\n' % (city['name'], city['weather'][0]['description'].title())
+                    text += 'Current weather in %s: %s\n' % (city['name'], city['weather'][0]['description'].title())
                     text += 'Max tempture: %i\n' % city['main']['temp_max']
                     text += 'Min tempture: %i\n\n' % city['main']['temp_min']
                 
